@@ -69,7 +69,45 @@ https://danielkummer.github.io/git-flow-cheatsheet/index.ru_RU.html
 4. Диктатор отправляет свою ветку master в эталонный репозиторий, чтобы остальные разработчики могли выполнять перемещение на неё.
 
 Запросы на выбор
+
+речь идет о pull request'aх в другие публичные проэкты
+git clone git@github.com:username/Spoon-Knife.git
+cd Spoon-Knife
+git remote add upstream git://github.com/octocat/Spoon-Knife.git
+git fetch upstream
+git checkout -b feature
+Творим добро и загружаем ветку в свой удаленный репозиторий 
+git push origin feature 
+И потом уже через github делаем pull request указывая основной репозиторий, какие коммиты нужно запулить ( сам не делал, но протестю у кого-то)
+После того, как всё сделано
+git checkout master
+git pull upstream master
+git push origin master
+
+Также можно удалить ветку
+git branch -d feature #В локальном репозитории
+git push origin :feature #В удалённом репозитории
+
+
+
+
+
 Конфликты
+git checkout master
+git merge some_branch
+
+Если возникает конфликт, в данном случае, нам необходимо его разрешить и сделать коммит например "Merged conflict has been fixed"
+Чтобы отменить merge используем команду
+git merge --abort
+
+git branch --merged master lists branches merged into master
+
+git branch --merged lists branches merged into HEAD (i.e. tip of current branch)
+
+git branch --no-merged lists branches that have not been merged
+
+rebase
+
 Крючки
 Клиенты GUI (kraken)
 

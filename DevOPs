@@ -106,9 +106,21 @@ git branch --merged lists branches merged into HEAD (i.e. tip of current branch)
 
 git branch --no-merged lists branches that have not been merged
 
-rebase
+rebase по факту применят все коммиты ветки в ту ветку которую ты указываешь, после выполнения данной команды все коммиты будут удалены.
+
+git checkout feature
+git rebase master
+
+можно указать параметр --onto чтобы ограничить глубину веток для rebase
+
+git rebase --onto e1235 master , rebase будет применяется с ветки, что идет после e12345
 
 Крючки
+Золотые слова  "Для того чтобы познакомиться с механизмом хуков в git, достаточно просто начать их использовать и посмотреть как оно работает, и как оно устроено внутри."
+
+
+https://habrahabr.ru/post/75063/
+
 Клиенты GUI (kraken)
 
 

@@ -1,0 +1,22 @@
+Просмотр архивов
+
+TAR - что может быть проще
+За создание архивов отвечает опция c
+За извлечение архивов опция x
+За просмотр архивов опция t
+
+tar -tf 
+tar -tzf
+tar -tjf
+
+Создание архива из удаленного сервера
+
+ssh user@host "tar -cf - /path/to/dir" > gzip dir.tar.gz
+ssh user@host "tar -czf - /path/to/dir" > dir.tar.gz
+
+Создаем архив на удаленный хост текущей директории с нашего ПК
+tar czcf - -C $PWD . | ssh root@46.254.21.145 "cat > /home/myfiles.tar.gz"
+
+Переносим архив c удаленного сервера на наш
+ssh root@46.254.21.145 "cat /home/myfiles.tar.gz" | cat > test/myfiles.tar.gz
+ssh root@46.254.21.145 "dd if=/home/myfiles.tar.gz" | dd of=test/myfiles_super.tar.gz
